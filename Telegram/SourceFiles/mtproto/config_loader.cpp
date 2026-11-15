@@ -136,19 +136,10 @@ void ConfigLoader::setPhone(const QString &phone) {
 }
 
 void ConfigLoader::createSpecialLoader() {
-	const auto testMode = _instance->isTestMode();
+	// Rudy: backup addresses would come from Telegram's DNS / Firebase
+	// config, so the special config request is never made.
 	_triedSpecialEndpoints.clear();
-	_specialLoader = std::make_unique<SpecialConfigRequest>([=](
-			DcId dcId,
-			const std::string &ip,
-			int port,
-			bytes::const_span secret) {
-		if (ip.empty()) {
-			_specialLoader = nullptr;
-		} else {
-			addSpecialEndpoint(dcId, ip, port, secret);
-		}
-	}, testMode, _instance->configValues().txtDomainString, _phone);
+	_specialLoader = nullptr;
 }
 
 void ConfigLoader::addSpecialEndpoint(

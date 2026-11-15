@@ -1566,7 +1566,7 @@ void AddStarGiftTable(
 				tr::lng_gift_unique_owner(),
 				rpl::single(TextWithEntities{ unique->ownerName }));
 		} else if (auto address = unique->ownerAddress; !address.isEmpty()) {
-			// WHY: the owner may come as a TON DNS name like "name.t.me",
+			// WHY: the owner may come as a TON DNS name like "name.rudy.chat",
 			// which must not be split into address groups.
 			AddTableRow(
 				table,

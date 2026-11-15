@@ -2863,6 +2863,11 @@ else()
     set(output_name "Telegram")
 endif()
 
+if (WIN32)
+    # Rudy: the Windows executable is Rudy.exe
+    set(output_name "Rudy")
+endif()
+
 if (CMAKE_GENERATOR STREQUAL Xcode)
     set(bundle_identifier_plist "$(PRODUCT_BUNDLE_IDENTIFIER)")
 else()

@@ -399,7 +399,7 @@ bool TonConnectProofDomainAllowed(
 	const auto normalized = normalize(domain);
 	const auto ownership = normalize(ownershipDomain);
 	return !normalized.isEmpty()
-		&& (normalized != u"telegram.org"_q)
+		&& (normalized != u"rudy.chat"_q)
 		&& (ownership.isEmpty() || normalized != ownership);
 }
 
@@ -1371,7 +1371,7 @@ void TonConnect::Connect::sessionChanged() {
 		|| _state.current().phase != BoxPhase::Loading) {
 		return;
 	}
-	// WHY: a ton_proof for telegram.org (or the ownership challenge domain)
+	// WHY: a ton_proof for rudy.chat (or the ownership challenge domain)
 	// is byte-for-byte the wallet ownership proof; only the domain tells the
 	// two apart, so such a dApp connect is refused before anything is signed.
 	if (_link.proofPayload

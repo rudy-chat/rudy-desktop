@@ -214,7 +214,7 @@ QString Bridge::openLink(const QString &url, bool telegram) {
 		ConfirmExternalUrl(controller, url);
 		return u"openLink: asked to confirm the link"_q;
 	}
-	// As a visible t.me link tapped in this message: only its own dialogs show.
+	// As a visible rudy.chat link tapped in this message: only its own dialogs show.
 	const auto context = ClickHandlerContext{
 		.itemId = _item->fullId(),
 		.sessionWindow = base::make_weak(controller),
@@ -222,7 +222,7 @@ QString Bridge::openLink(const QString &url, bool telegram) {
 	UrlClickHandler::Open(
 		UrlClickHandler::EncodeForOpening(url),
 		QVariant::fromValue(context));
-	return u"openTelegramLink: passed to the app's t.me handling"_q;
+	return u"openTelegramLink: passed to the app's rudy.chat handling"_q;
 }
 
 QString Bridge::copyText(const QString &text, not_null<QWidget*> window) {

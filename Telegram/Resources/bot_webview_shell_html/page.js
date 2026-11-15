@@ -87,7 +87,7 @@
 
 	function isShellOrigin() {
 		return window.location.protocol === 'https:'
-			&& window.location.hostname === 'web.telegram.org'
+			&& window.location.hostname === 'web.rudy.chat'
 			&& (!window.location.port || window.location.port === '443');
 	}
 

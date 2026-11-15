@@ -20,7 +20,7 @@ namespace Core {
 namespace {
 
 [[nodiscard]] bool IsImageFromFirefox(not_null<const QMimeData*> data) {
-	// See https://bugs.telegram.org/c/6765/public
+	// See https://bugs.rudy.chat/c/6765/public
 	// See https://github.com/telegramdesktop/tdesktop/issues/10564
 	//
 	// Usually we prefer pasting from URLs list instead of pasting from

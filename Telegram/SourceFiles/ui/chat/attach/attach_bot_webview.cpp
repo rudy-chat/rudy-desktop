@@ -94,13 +94,13 @@ struct NativeMessage {
 }
 
 [[nodiscard]] QString ExternalShellTopUrl() {
-	return u"https://web.telegram.org:443/blank.html"_q;
+	return u"https://web.rudy.chat:443/blank.html"_q;
 }
 
 // Loaded locally with ExternalShellTopUrl() as the base URI, so that
-// the shell document gets the web.telegram.org origin (required by
+// the shell document gets the web.rudy.chat origin (required by
 // Mini Apps frame-ancestors) without any network requests, that may
-// fail in case web.telegram.org is not accessible from the network.
+// fail in case web.rudy.chat is not accessible from the network.
 [[nodiscard]] QString ExternalShellTopHtml() {
 	return u"<!DOCTYPE html><html><head></head><body></body></html>"_q;
 }
@@ -122,7 +122,7 @@ void NavigateToExternalShellTop(not_null<Webview::Window*> window) {
 	const auto url = QUrl(origin);
 	return url.isValid()
 		&& url.scheme() == u"https"_q
-		&& url.host() == u"web.telegram.org"_q
+		&& url.host() == u"web.rudy.chat"_q
 		&& url.port(443) == 443
 		&& url.userInfo().isEmpty()
 		&& url.path().isEmpty()
@@ -2926,7 +2926,7 @@ void Panel::openTgLink(const QJsonObject &args) {
 		requestClose();
 		return;
 	}
-	_delegate->botHandleLocalUri("https://t.me" + path, true);
+	_delegate->botHandleLocalUri("https://rudy.chat" + path, true);
 }
 
 void Panel::openExternalLink(const QJsonObject &args) {

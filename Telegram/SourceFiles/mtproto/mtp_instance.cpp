@@ -548,14 +548,7 @@ void Instance::Private::badConfigurationError(const ProxyData &proxy) {
 }
 
 void Instance::Private::syncHttpUnixtime() {
-	if (base::unixtime::http_valid() || _httpUnixtimeLoader) {
-		return;
-	}
-	_httpUnixtimeLoader = std::make_unique<SpecialConfigRequest>([=] {
-		InvokeQueued(_instance, [=] {
-			_httpUnixtimeLoader = nullptr;
-		});
-	}, isTestMode(), configValues().txtDomainString);
+	// Rudy: the HTTP time sync asks Google / Telegram hosts; it is skipped.
 }
 
 void Instance::Private::restartedByTimeout(ShiftedDcId shiftedDcId) {

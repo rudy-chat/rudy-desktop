@@ -401,50 +401,34 @@ std::vector<QColor> DefaultAccentColors(EmbeddedType type) {
 	const auto qColor = [](auto hex) {
 		return style::ColorFromHex(hex);
 	};
+	// Rudy accents (same as the Android app): Black/White, Pink, Purple, Red,
+	// Ocean, Mint, Amber, Graphite, Maroon.
 	switch (type) {
 	case EmbeddedType::DayBlue:
-		return {
-			qColor("45bce7"),
-			qColor("52b440"),
-			qColor("d46c99"),
-			qColor("df8a49"),
-			qColor("9978c8"),
-			qColor("c55245"),
-			qColor("687b98"),
-			qColor("dea922"),
-		};
 	case EmbeddedType::Default:
 		return {
-			qColor("45bce7"),
-			qColor("52b440"),
-			qColor("d46c99"),
-			qColor("df8a49"),
-			qColor("9978c8"),
-			qColor("c55245"),
-			qColor("687b98"),
-			qColor("dea922"),
+			qColor("111113"),
+			qColor("bf4277"),
+			qColor("7450c4"),
+			qColor("c8453f"),
+			qColor("2d6fb8"),
+			qColor("187a5e"),
+			qColor("9c6a17"),
+			qColor("55555c"),
+			qColor("800000"),
 		};
 	case EmbeddedType::Night:
-		return {
-			qColor("58bfe8"),
-			qColor("466f42"),
-			qColor("aa6084"),
-			qColor("a46d3c"),
-			qColor("917bbd"),
-			qColor("ab5149"),
-			qColor("697b97"),
-			qColor("9b834b"),
-		};
 	case EmbeddedType::NightGreen:
 		return {
-			qColor("60a8e7"),
-			qColor("4e9c57"),
-			qColor("ca7896"),
-			qColor("cc925c"),
-			qColor("a58ed2"),
-			qColor("d27570"),
-			qColor("7b8799"),
-			qColor("cbac67"),
+			qColor("ededf0"),
+			qColor("ec7fa9"),
+			qColor("ac93ec"),
+			qColor("ee8079"),
+			qColor("73a9ea"),
+			qColor("55c7a3"),
+			qColor("e2b35f"),
+			qColor("aeaeb5"),
+			qColor("d27373"),
 		};
 	}
 	Unexpected("Type in Window::Theme::AccentColors.");

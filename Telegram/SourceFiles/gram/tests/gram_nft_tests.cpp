@@ -489,10 +489,10 @@ std::vector<Check> NftChecks() {
 				return u"usernames key: got "_q
 					+ username.key
 					+ u", expected katrinakaif"_q;
-			} else if (username.domain != u"katrinakaif.t.me"_q) {
+			} else if (username.domain != u"katrinakaif.rudy.chat"_q) {
 				return u"usernames domain: got "_q
 					+ username.domain
-					+ u", expected katrinakaif.t.me"_q;
+					+ u", expected katrinakaif.rudy.chat"_q;
 			} else if (!username.onSale) {
 				return u"usernames onSale: got false, expected true"_q;
 			} else if (username.realOwner.toUpper() == sale) {

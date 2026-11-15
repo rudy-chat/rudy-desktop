@@ -136,10 +136,10 @@ constexpr auto kReminderSetToastDuration = 4 * crl::time(1000);
 
 [[nodiscard]] std::vector<QString> DefaultWhitelistedDomains() {
 	return {
-		u"telegram.dog"_q,
-		u"telegram.me"_q,
-		u"telegram.org"_q,
-		u"t.me"_q,
+		u"rudy.chat"_q,
+		u"rudy.chat"_q,
+		u"rudy.chat"_q,
+		u"rudy.chat"_q,
 		u"telegra.ph"_q,
 		u"te.legra.ph"_q,
 		u"graph.org"_q,
@@ -197,7 +197,7 @@ constexpr auto kReminderSetToastDuration = 4 * crl::time(1000);
 	using namespace qthelp;
 
 	return regex_match(
-		"(^|\\.)(telegram\\.(me|dog)|t\\.me)$",
+		"(^|\\.)(telegram\\.(me|dog)|rudy\\.chat)$",
 		url.host(),
 		RegExOption::CaseInsensitive).valid();
 }
@@ -347,7 +347,7 @@ void ExportToCalendar(TimeId date, const QString &messageText) {
 		"DTSTART:%1\r\n"
 		"DTEND:%2\r\n"
 		"DTSTAMP:%3\r\n"
-		"UID:telegram-%4-%7@telegram.org\r\n"
+		"UID:telegram-%4-%7@rudy.chat\r\n"
 		"SUMMARY:%5\r\n"
 		"DESCRIPTION:%6\r\n"
 		"END:VEVENT\r\n"

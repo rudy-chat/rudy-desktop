@@ -753,7 +753,7 @@ void SessionNavigation::showPeerByLinkResolved(
 		&& !botForumPost
 		&& (info.attachBotToggleCommand || !info.text.isEmpty());
 
-	// t.me/username/012345 - we thought it was a channel post link, but
+	// rudy.chat/username/012345 - we thought it was a channel post link, but
 	// after resolving the username we found out it is a bot.
 	const auto resolveType = (bot
 		&& !botForumPost
