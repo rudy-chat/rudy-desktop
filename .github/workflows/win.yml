@@ -70,6 +70,22 @@ jobs:
         shell: cmd
 
     steps:
+      - name: Free up runner disk space.
+        # Rudy: the libraries build can run out of disk on some runners; remove large preinstalled
+        # tools this build does not use.
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          Get-PSDrive C | Select-Object Used,Free
+          $paths = @(
+            'C:\Android', 'C:\ghcup', 'C:\cabal', 'C:\Program Files\R', 'C:\Program Files\MongoDB',
+            'C:\Program Files\MySQL', 'C:\hostedtoolcache\windows\go', 'C:\hostedtoolcache\windows\Ruby',
+            'C:\hostedtoolcache\windows\PyPy', 'C:\hostedtoolcache\windows\stack', 'C:\tools\php',
+            'C:\Program Files (x86)\Android', 'C:\Rust', 'C:\Julia', 'C:\Strawberry'
+          )
+          foreach ($p in $paths) { if (Test-Path $p) { Remove-Item -Recurse -Force -ErrorAction SilentlyContinue $p } }
+          Get-PSDrive C | Select-Object Used,Free
+
       - name: Prepare directories.
         run: |
           mkdir %userprofile%\TBuild\Libraries
